@@ -1,39 +1,35 @@
-/**********************|
-|*  Imports In model  *|
-|**********************/
+// Import the models
 const db = require("../models");
 
-/***************************|
-|*  Methods for controller *|
-|***************************/
-const CollectionNameController = {
+// Methods for Controllers
+const ProductsController = {
   findAll: function (req, res) {
-    db.CollectionName
+    db.Product
       .find(req.query)
       .then((dbModel) => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function (req, res) {
-    db.CollectionName
+    db.Product
       .findById(req.params.id)
       .then((dbModel) => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {
     console.log(JSON.stringify(req.body, null, 2));
-    db.CollectionName
+    db.Product
       .create(req.body)
       .then((dbModel) => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
-    db.CollectionName
+    db.Product
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then((dbModel) => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   remove: function (req, res) {
-    db.CollectionName
+    db.Product
       .findById({ _id: req.params.id })
       .then((dbModel) => dbModel.remove())
       .then((dbModel) => res.json(dbModel))
@@ -41,7 +37,5 @@ const CollectionNameController = {
   }
 };
 
-/***********|
-|* EXPORTS *|
-|***********/
-module.exports = CollectionNameController;
+// Exports
+module.exports = ProductsController;
