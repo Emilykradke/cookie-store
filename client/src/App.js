@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import XPage from './pages/XPage';
-import XPageTwo from './pages/XPageTwo'
-import XCollection from './pages/XCollection'
-import XNoMatch from './pages/XNoMatch';
-import { XNav } from './components/XNav';
+import Home from './pages/Home';
+import Shop from './pages/Shop'
+import AboutUs from './pages/AboutUs'
+import ContactUs from './pages/ContactUs'
+import SignIn from './pages/SignIn'
+import Cart from './pages/Cart'
+import NoMatch from './pages/NoMatch';
+import { Nav } from './components/Nav';
 
 class App extends Component {
   render() {
-    return <Router forceRefresh={!'pushState' in window.history}>
+    return (
+    <Router>
       <div>
-        <XNav />
+        <Nav />
         <Switch>
-          <Route exact path='/' component={XPage} />
-          <Route exact path='/XPageTwo' component={XPageTwo} />
-          <Route exact path='/XCollection/:id' component={XCollection} />
-          <Route component={XNoMatch} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/Shop' component={Shop} />
+          <Route exact path='/AboutUs' component={AboutUs} />
+          <Route exact path='/ContactUs' component={ContactUs} />
+          <Route exact path='/SignIn' component={SignIn} />
+          <Route exact path='/Cart' component={Cart} />
+          <Route component={NoMatch} />
         </Switch>
+        <Footer />
       </div>
     </Router>
+    )
   }
 };
 

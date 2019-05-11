@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 // Create Schema class under Schema variable
 const Schema = mongoose.Schema;
 
-// Create Schema for collectionNameSchema
+// Create Schema for productSchema
 const productSchema = new Schema({
   imagePath: {
     type: String,
@@ -25,7 +25,7 @@ const productSchema = new Schema({
   nuts: {
     type: Boolean
   },
-  gluten: {
+  gluten: { 
     type: Boolean 
   }
 });
