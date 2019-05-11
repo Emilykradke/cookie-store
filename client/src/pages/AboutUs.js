@@ -1,9 +1,9 @@
-import React, { Compnent } from "react";
+import React, { Component } from "react";
 
 class AboutUs extends Component {
 render(){
   return(
-    
+    <div></div>
   )
 }
 };

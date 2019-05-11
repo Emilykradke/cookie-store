@@ -1,9 +1,9 @@
-import React, { Compnent } from "react";
+import React, { Component } from "react";
 
 class Cart extends Component {
 render(){
   return(
-    
+    <div></div>
   )
 }
 };
