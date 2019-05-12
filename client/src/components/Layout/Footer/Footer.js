@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import "./footer.css"
 
 class Footer extends Component {
   render() {
     return (
-      <h2>Footer</h2>
+      <footer className="copyright">
+        <h2>© 2019 <a href="/">Cookie Store - The Premium Cookie Company</a></h2>
+      </footer>
     );
   }
 }
