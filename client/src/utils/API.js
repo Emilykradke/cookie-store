@@ -2,8 +2,8 @@ import axios from "axios";
 
 export default {
   // Gets all Documents
-  getDocuments: function() {
-    return axios.get("/api/collectionName");
+  getProducts: function() {
+    return axios.get("/api/products");
   },
   // Gets the Document with the given id
   getDocument: function(id) {
