@@ -6,6 +6,7 @@ import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import SignIn from './pages/SignIn';
 import Cart from './pages/Cart';
+import ProductDetails from './pages/ProductDetails'
 import NoMatch from './pages/NoMatch';
 import Nav from './components/Layout/Nav/Nav';
 import Footer from './components/Layout/Footer/Footer';
@@ -23,6 +24,7 @@ class App extends Component {
           <Route exact path='/ContactUs' component={ContactUs} />
           <Route exact path='/SignIn' component={SignIn} />
           <Route exact path='/Cart' component={Cart} />
+          <Route exact path='/ProductDetails' component={ProductDetails} />
           <Route component={NoMatch} />
         </Switch>
         <Footer />
