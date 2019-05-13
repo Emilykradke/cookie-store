@@ -24,7 +24,7 @@ class App extends Component {
           <Route exact path='/ContactUs' component={ContactUs} />
           <Route exact path='/SignIn' component={SignIn} />
           <Route exact path='/Cart' component={Cart} />
-          <Route exact path='/ProductDetails' component={ProductDetails} />
+          <Route exact path='/products/:id' component={ProductDetails} />
           <Route component={NoMatch} />
         </Switch>
         <Footer />

@@ -1,11 +1,9 @@
 import React from 'react';
 
-function ProductContainer(props) {
+function ProductContainer({ children }) {
   return (
       <li className="productContainer">
-          <img src={props.image} alt="cookie"/>
-          <div className="flavor">{props.flavor}</div>
-          <div className="price">{props.price}</div>
+          {children}
       </li>
   );
 }

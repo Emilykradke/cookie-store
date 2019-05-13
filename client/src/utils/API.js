@@ -6,8 +6,8 @@ export default {
     return axios.get("/api/products");
   },
   // Gets the Document with the given id
-  getDocument: function(id) {
-    return axios.get("/api/collectionName/" + id);
+  getProduct: function(id) {
+    return axios.get("/api/products/" + id);
   },
   // Deletes the Document with the given id
   deleteDocument: function(id) {

@@ -32,16 +32,14 @@ class Shop extends Component {
       <div id="products">
         <ul>
           {this.state.products.map(product => (
-            console.log(product),
-            <Link to="/ProductDetails">
-              <ProductContainer
-                flavor={product.flavor}
-                image={product.imagePath}
-                description={product.description}
-                price={product.price}
-                key={product._id}>
+            // console.log(product),
+              <ProductContainer key={product._id}>
+                <Link to={"/products/" + product._id}>
+                  <img src={product.imagePath} alt="cookie"/>
+                  <div className="flavor">{product.flavor}</div>
+                  <div className="price">{product.price}</div>
+                </Link>
               </ProductContainer>
-            </Link>
           ))}
         </ul> 
       </div>
