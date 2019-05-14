@@ -55,7 +55,8 @@ db.on("error", (error) => {
 
 // Logs success if sucessfully connected to db
 db.once("open", () => {
-	console.log("DB connection successful!");
+  console.log("DB connection successful!");
+  require('./scripts/productsSeed.js')();
 });
 
 /*****************|
