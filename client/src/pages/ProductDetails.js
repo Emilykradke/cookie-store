@@ -17,10 +17,15 @@ class ProductDetails extends Component {
 render(){
   return(
     <Container>
-      <div>
-        <h1>{this.state.products.flavor}</h1>
+      <div className="productImage">
         <img src={this.state.products.imagePath} alt={this.state.products.flavor}/>
+      </div>
+      <div className="productDetails">
+        <h1>{this.state.products.flavor}</h1>
         <p>{this.state.products.description}</p>
+      </div>
+      <div className="quantity">
+        
       </div>
     </Container>
   )

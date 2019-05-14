@@ -28,6 +28,7 @@ class Shop extends Component {
   return(
     <Container>
       <DropdownMenu>
+         
       </DropdownMenu>
       <div id="products">
         <ul>
