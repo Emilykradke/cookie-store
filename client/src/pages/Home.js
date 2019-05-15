@@ -5,9 +5,11 @@ class Home extends Component {
 render(){
   return(
     <Container>
-    
+      <div className="hero" >
+        <h1 className="title">Cookie Store</h1>
+      </div>
     </Container>
-  )
+  ) 
 }
 };
 

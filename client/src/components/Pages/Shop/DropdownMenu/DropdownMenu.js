@@ -34,7 +34,7 @@ showDropdownMenu(event) {
 
           { this.state.displayMenu ? (
           <ul>
-            <li>Price: low - high</li>
+            {/* <li onClick={props.onClick}>Price: low - high</li> */}
             <li>Price: high - low</li>
             <li>Alphabetical</li>
             <li>Gluten Free</li>

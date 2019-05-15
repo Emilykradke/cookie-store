@@ -12,6 +12,7 @@ class Shop extends Component {
 
   componentDidMount() {
     this.loadProducts();
+    console.log(this.props)
   }
 
   loadProducts = () => {

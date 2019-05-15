@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { Link, withRouter } from "react-router-dom"
 import Container from "../components/Layout/Container/Container"
 import API from "../utils/API";
 import { Input, Button } from "../components/Layout/Form/Form" 
@@ -6,9 +7,9 @@ import { Input, Button } from "../components/Layout/Form/Form"
 class ProductDetails extends Component {
   state = {
     products: {},
-    quantity: "",
+    quanity: "",
     total: "",
-    
+    addedToCart: false
   }
 
   componentDidMount() {
@@ -29,12 +30,16 @@ class ProductDetails extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    // API.addToCart({
-
-    // })
+    const { products } = this.state;
+    this.props.addToCart(products);
+    this.setState({
+      addedToCart: true
+    })
   }
 
 render(){
+  const { addedToCart } = this.state;
+  console.log(this.props)
   return(
     <Container>
       <div className="productImage">
@@ -57,10 +62,22 @@ render(){
         >
         Add to Cart
         </Button>
+
+        {addedToCart ?
+          <Fragment>
+            <Link to="/Shop" className="continueShopping">
+              Continue Shopping
+            </Link>
+            <Link to="/Cart" className="checkoutLink">
+              Checkout
+            </Link>
+          </Fragment>
+          :null
+          }
       </form>
     </Container>
   )
 }
 };
 
-export default ProductDetails;
+export default withRouter(ProductDetails);
