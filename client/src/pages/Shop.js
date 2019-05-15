@@ -27,7 +27,7 @@ class Shop extends Component {
   render(){
   return(
     <Container>
-      <DropdownMenu ></DropdownMenu>
+      <DropdownMenu></DropdownMenu>
       <div id="products">
         <ul>
           {this.state.products.map(product => (
