@@ -19,22 +19,19 @@ class ProductDetails extends Component {
   }
 
   handleInputChange = event => {
-    const { name, value} = event.target;
+    const { value } = event.target;
     const total = this.state.products.price * parseInt(value)
     this.setState({
-      [name]: value,
+      quantity: value,
       total: total
     }, () => {console.log(this.state)})
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-    this.props.addToCart(this.state);
     this.setState({
-      addedToCart: true,
-      quantity: ""
-    })
-
+      addedToCart: true
+    }, () => {this.props.addToCart(this.state)})
   }
 
 render(){
