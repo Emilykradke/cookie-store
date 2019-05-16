@@ -7,7 +7,6 @@ import { Input, Button } from "../components/Layout/Form/Form"
 class ProductDetails extends Component {
   state = {
     products: {},
-    quanity: "",
     total: "",
     addedToCart: false
   }
@@ -30,11 +29,12 @@ class ProductDetails extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    const { products } = this.state;
-    this.props.addToCart(products);
+    this.props.addToCart(this.state);
     this.setState({
-      addedToCart: true
+      addedToCart: true,
+      quantity: ""
     })
+
   }
 
 render(){
