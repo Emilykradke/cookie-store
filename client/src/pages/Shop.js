@@ -11,41 +11,32 @@ class Shop extends Component {
   }
 
   componentDidMount() {
-    this.loadProducts();
-    console.log(this.props)
-  }
-
-  loadProducts = () => {
-    API.getProducts()
-      .then(res =>
-        this.setState({ 
-          products: res.data 
-        }),
-      )
-      .catch(err => console.log(err))
+    this.setState({
+      products: this.props.products
+    })
   }
 
   render(){
-  return(
-    <Container>
-      <DropdownMenu></DropdownMenu>
-      <div id="products">
-        <ul>
-          {this.state.products.map(product => (
-            // console.log(product),
-              <ProductContainer key={product._id}>
-                <Link to={"/products/" + product._id}>
-                  <img src={product.imagePath} alt="cookie"/>
-                  <div className="flavor">{product.flavor}</div>
-                  <div className="price">{product.price}</div>
-                </Link>
-              </ProductContainer>
-          ))}
-        </ul> 
-      </div>
-    </Container>
-  )
-}
+    return(
+      <Container>
+        <DropdownMenu></DropdownMenu>
+        <div id="products">
+          <ul>
+            {this.state.products.map(product => (
+              // console.log(product),
+                <ProductContainer key={product._id}>
+                  <Link to={"/products/" + product._id}>
+                    <img src={product.imagePath} alt="cookie"/>
+                    <div className="flavor">{product.flavor}</div>
+                    <div className="price">{product.price}</div>
+                  </Link>
+                </ProductContainer>
+            ))}
+          </ul> 
+        </div>
+      </Container>
+    )
+  }
 };
 
 export default Shop;

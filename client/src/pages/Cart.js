@@ -3,6 +3,7 @@ import Container from "../components/Layout/Container/Container"
 
 class Cart extends Component {
 render(){
+  console.log(this.props)
   return(
     <Container>
       

@@ -1,55 +1,57 @@
 import React, { Component, Fragment } from "react";
 import { Link, withRouter } from "react-router-dom"
 import Container from "../components/Layout/Container/Container"
-import API from "../utils/API";
 import { Input, Button } from "../components/Layout/Form/Form" 
 
 class ProductDetails extends Component {
   state = {
-    products: {},
+    product: null,
     total: "",
     addedToCart: false
   }
 
-  componentDidMount() {
-    API.getProduct(this.props.match.params.id)
-      .then(res => 
-        this.setState({ products: res.data}, () => {console.log(this.state)}))
-      .catch(err => console.log(err))
+  componentWillMount() {
+    const product = this.props.products.filter(product => {
+      return product._id === this.props.match.params.id
+    })
+    this.setState({
+      product: product[0]
+    })
   }
 
   handleInputChange = event => {
-    const { value } = event.target;
-    const total = this.state.products.price * parseInt(value)
+    const { value } = event.target
     this.setState({
       quantity: value,
-      total: total
+      total: this.state.product.price * parseInt(value)
     }, () => {console.log(this.state)})
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
+    this.props.addToCart(this.state)
     this.setState({
-      addedToCart: true
-    }, () => {this.props.addToCart(this.state)})
+      addedToCart: true,
+      quantity: ""
+    })
   }
 
 render(){
-  const { addedToCart } = this.state;
-  console.log(this.props)
+  const { addedToCart, product } = this.state;
   return(
     <Container>
       <div className="productImage">
-        <img src={this.state.products.imagePath} alt={this.state.products.flavor}/>
+        <img src={this.state.product.imagePath} alt={this.state.product.flavor}/>
       </div>
       <div className="productDetails">
-        <h1>{this.state.products.flavor}</h1>
-        <p>{this.state.products.description}</p>
+        <h1>{product.flavor}</h1>
+        <p>{product.description}</p>
+        <p>{product.price}</p>
       </div>
       <form className="quantity">
         <div>Qty</div>
         <Input
-          value={this.state.quantity}
+          defaultValue={this.state.quantity}
           onChange={this.handleInputChange}
           name="quantity"
           placeholder="1"
@@ -61,7 +63,9 @@ render(){
         </Button>
 
         {addedToCart ?
+
           <Fragment>
+            <p><b>{this.state.product.flavor} Cookies</b> Added To Cart!</p>
             <Link to="/Shop" className="continueShopping">
               Continue Shopping
             </Link>
