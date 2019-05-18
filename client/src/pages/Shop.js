@@ -15,19 +15,25 @@ class Shop extends Component {
 
   render(){
     return(
+      <>
+        {(this.props.isProductsLoaded) ? 
       <Container>
         <div id="products">
           <ul>
-            {this.state.products.map(product => (
+            {this.props.products.map(product => (
               <Link to={"/products/" + product._id} key={product._id}>
                 <img src={product.imagePath} alt="cookie"/>
                 <div className="flavor">{product.flavor}</div>
                 <div className="price">${product.price}.00</div>
               </Link>
             ))}
-          </ul> 
+          </ul>  
         </div>
       </Container>
+      :
+      null
+      }
+      </>
     )
   }
 };

@@ -13,15 +13,13 @@ import Footer from './components/Layout/Footer/Footer';
 import API from "./utils/API";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
+    state = {
       cart: [],
       products: [],
-      authenticated: false
+      authenticated: false,
+      isProductsLoaded: false
     }
-  }
 
   componentDidMount() {
     this.loadProducts();
@@ -31,9 +29,12 @@ class App extends Component {
   loadProducts = () => {
     API.getProducts()
       .then(res =>
+        // Products have finished loading so setState to reutls
         this.setState({ 
-          products: res.data 
-        }),
+          products: res.data,
+          isProductsLoaded: true 
+        })
+        
       )
       .catch(err => console.log(err))
   }
@@ -45,7 +46,7 @@ class App extends Component {
   }
 
   render() {
-    const { cart, products, authenticated } = this.state;
+    const { cart, products, authenticated, isProductsLoaded } = this.state;
 
     return (
     <Router>
@@ -60,6 +61,7 @@ class App extends Component {
               products={products}
               addToCart={this.addToCart}
               cart={cart}
+              isProductsLoaded = {isProductsLoaded}
             />
           </Route>
           <Route exact path='/AboutUs' component={AboutUs} />
@@ -67,13 +69,14 @@ class App extends Component {
           <Route exact path='/SignIn' component={SignIn} />
           <Route exact path='/Cart'>
             <Cart
-              props={cart}
+              cart={cart}
             />
           </Route>
           <Route exact path='/products/:id'  render={() => (
             <ProductDetails
               products={products}
-              addToCart={(productObj) => this.addToCart(productObj)} />
+              addToCart={(productObj) => this.addToCart(productObj)} 
+              isProductsLoaded = {isProductsLoaded}/>
           )} />
         <Route component={NoMatch} />
         </Switch>

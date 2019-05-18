@@ -3,24 +3,22 @@ import { Link } from "react-router-dom"
 import Container from "../components/Layout/Container/Container"
 
 class Cart extends Component {
-  state = {
-    cartItems: []
-  }
-
   componentDidMount() {
-    this.setState({
-      cartItems: this.props.props
-    }, () => {console.log(this.state.cartItems)})
-    // calculateCartTotal();
+    this.calculateCartTotal(this.props.cart);
+    console.log(this.props.cart);
+    // console.log(this.calculateCartTotal(this.props.cart))
   }
 
   calculateCartTotal() {
-    const itemTotal = this.state.cartItems.total.map(price => {
-      return price.total
+    const totalArr = []
+    this.props.cart.forEach(item => {
+      return totalArr.push(item.total)
     })
-    const cartTotal = itemTotal.reduce((prev, curr) => {
+    console.log(totalArr);
+    const cartTotal = totalArr.reduce((prev, curr) => {
       return prev + curr;
-    }, () => {console.log(cartTotal)})
+    })
+    console.log(cartTotal);
   }
 
 render(){
@@ -29,7 +27,7 @@ render(){
       <h1>Your Cart</h1>
       <div id="cartItems">
         <ul>
-          {this.state.cartItems.map(cartItem => (
+          {this.props.cart.map(cartItem => (
             <div className="product-container" key={cartItem.product._id}>
               <Link to={"/products/" + cartItem.product._id}>
                 <img src={cartItem.product.imagePath} alt="cookie"/>

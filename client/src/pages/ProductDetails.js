@@ -2,21 +2,22 @@ import React, { Component, Fragment } from "react";
 import { Link, withRouter } from "react-router-dom"
 import Container from "../components/Layout/Container/Container"
 import { Input, Button } from "../components/Layout/Form/Form" 
+import API from "../utils/API";
 
 class ProductDetails extends Component {
   state = {
-    product: null,
+    product: {},
     total: "",
     addedToCart: false
   }
 
-  componentWillMount() {
-    const product = this.props.products.filter(product => {
-      return product._id === this.props.match.params.id
-    })
-    this.setState({
-      product: product[0]
-    })
+  componentDidMount() {
+    API.getProduct(this.props.match.params.id)
+      .then(res => 
+        this.setState({ 
+          product: res.data
+        }))
+      .catch(err => console.log(err))
   }
 
   handleInputChange = event => {
@@ -41,7 +42,7 @@ render(){
   return(
     <Container>
       <div className="productImage">
-        <img src={this.state.product.imagePath} alt={this.state.product.flavor}/>
+        <img src={product.imagePath} alt={product.flavor}/>
       </div>
       <div className="productDetails">
         <h1>{product.flavor}</h1>
@@ -51,10 +52,10 @@ render(){
       <form className="quantity">
         <div>Qty</div>
         <Input
-          defaultValue={this.state.quantity}
+          defaultValue=""
           onChange={this.handleInputChange}
           name="quantity"
-          placeholder="1"
+          placeholder="Enter Quantity Here"
           />
         <Button
           onClick={this.handleFormSubmit}
