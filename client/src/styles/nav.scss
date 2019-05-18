@@ -2,21 +2,38 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
 
-h2 a {
-  text-decoration: none;
-}
+  .logo {
+    margin: 10px 0 10px 20px;
+    padding: 5px;
+    background-color: $banner;
+    font-size: 32px;
+    border-radius: 8px;
 
-.nav-list {
-  list-style: none;
-}
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
 
-li {
-  display: inline-block;
-  margin-right: 15px;
-}
+  .nav-list {
 
-li a {
-  text-decoration: none;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      margin-right: 20px;
+    
+      a {
+        font-size: 18px;
+        color: $font-primary;
+        text-decoration: none;
+
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+
 }

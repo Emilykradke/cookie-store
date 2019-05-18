@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import "./footer.css"
+import { Link } from "react-router-dom";
 
 class Footer extends Component {
   render() {
     return (
-      <footer className="copyright">
-        <h2>© 2019 <a href="/AboutUs">Cookie Store - The Premium Cookie Company</a></h2>
+      <footer >
+        <div className="link-block">
+          <Link className="link" to="/AboutUs">About</Link>
+          <Link className="link" to="/ContactUs">Contact</Link>
+        </div>
+        <p className="copyright">
+          © 2019 
+          <Link to="/AboutUs">Cookie Store - The Premium Cookie Company</Link>
+        </p>
       </footer>
     );
   }

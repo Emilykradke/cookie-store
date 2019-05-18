@@ -45,17 +45,21 @@ class App extends Component {
   }
 
   render() {
+    const { cart, products, authenticated } = this.state;
+
     return (
     <Router>
       <Fragment>
-        <Nav authenticated={this.state.authenticated}/>
+        <Nav 
+          cart = {cart}
+          authenticated={authenticated}/>
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/Shop'>
             <Shop
-              products={this.state.products}
+              products={products}
               addToCart={this.addToCart}
-              cart={this.state.cart}
+              cart={cart}
             />
           </Route>
           <Route exact path='/AboutUs' component={AboutUs} />
@@ -63,12 +67,12 @@ class App extends Component {
           <Route exact path='/SignIn' component={SignIn} />
           <Route exact path='/Cart'>
             <Cart
-              props={this.state.cart}
+              props={cart}
             />
           </Route>
           <Route exact path='/products/:id'  render={() => (
             <ProductDetails
-              products={this.state.products}
+              products={products}
               addToCart={(productObj) => this.addToCart(productObj)} />
           )} />
         <Route component={NoMatch} />

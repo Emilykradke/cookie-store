@@ -1,0 +1,41 @@
+footer {
+  background-color: $bg-secondary;
+  padding: 50px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .link-block {
+      margin-bottom: 24px;
+
+      .link {
+          display: inline-block;
+          margin-bottom: 10px;
+          text-decoration: none;
+          font-size: 18px;
+          color: $link-primary;
+          cursor: pointer;
+
+          &:hover {
+              color: white;
+          }
+
+          &:first-of-type {
+              margin-right: 20px;
+          }
+      }
+  }
+
+  .copyright {
+      color: white;
+
+      a {
+          display: inline-block;
+          margin-left: 10px;
+          color: white;
+          font-size: 14px;
+          // text-decoration: none;
+      }
+  }
+}
