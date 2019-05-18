@@ -27,7 +27,7 @@ class Shop extends Component {
                   <Link to={"/products/" + product._id}>
                     <img src={product.imagePath} alt="cookie"/>
                     <div className="flavor">{product.flavor}</div>
-                    <div className="price">{product.price}</div>
+                    <div className="price">${product.price}.00</div>
                   </Link>
                 </ProductContainer>
             ))}

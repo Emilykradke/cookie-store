@@ -46,7 +46,7 @@ render(){
       <div className="productDetails">
         <h1>{product.flavor}</h1>
         <p>{product.description}</p>
-        <p>{product.price}</p>
+        <p>$ {product.price}.00</p>
       </div>
       <form className="quantity">
         <div>Qty</div>
