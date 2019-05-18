@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
 import Container from "../components/Layout/Container/Container"
-import ProductContainer from "../components/Pages/Shop/ProductContainer/ProductContainer"
 
 class Cart extends Component {
   state = {
@@ -31,7 +30,7 @@ render(){
       <div id="cartItems">
         <ul>
           {this.state.cartItems.map(cartItem => (
-            <ProductContainer key={cartItem.product._id}>
+            <div className="product-container" key={cartItem.product._id}>
               <Link to={"/products/" + cartItem.product._id}>
                 <img src={cartItem.product.imagePath} alt="cookie"/>
               </Link>
@@ -41,12 +40,12 @@ render(){
                 <div className="quantity">QTY {cartItem.quantity}</div>
                 <div className="itemTotal">TOTAL {cartItem.total}</div>
               </div>
-            </ProductContainer>
+            </div>
           ))}
         </ul> 
       </div>
     </Container>
-  )
+  ) 
 }
 };
 
