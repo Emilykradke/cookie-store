@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
-import Container from "../components/Layout/Container/Container"
 
 class Shop extends Component {
   state = {
@@ -15,25 +14,24 @@ class Shop extends Component {
 
   render(){
     return(
-      <>
-        {(this.props.isProductsLoaded) ? 
-      <Container>
-        <div id="products">
-          <ul>
-            {this.props.products.map(product => (
-              <Link to={"/products/" + product._id} key={product._id}>
-                <img src={product.imagePath} alt="cookie"/>
-                <div className="flavor">{product.flavor}</div>
-                <div className="price">${product.price}.00</div>
-              </Link>
-            ))}
-          </ul>  
-        </div>
-      </Container>
-      :
-      null
-      }
-      </>
+      <div className="shop-container">
+        <>
+          {(this.props.isProductsLoaded) ? 
+            <div className="products-container">
+              {this.props.products.map(product => (
+                <Link className="product" to={"/products/" + product._id} key={product._id}>
+                  <img src={product.imagePath} alt="cookie"/>
+                  <p className="flavor">{product.flavor}</p>
+                  <p className="price">${product.price}.00</p>
+                </Link>
+              ))}
+            </div>
+          :
+          null
+          }
+        </>
+      </div>
+        
     )
   }
 };
