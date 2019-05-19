@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom"
-import Container from "../components/Layout/Container/Container"
 
 class Cart extends Component {
   componentDidMount() {
@@ -23,7 +22,7 @@ class Cart extends Component {
 
 render(){
   return(
-    <Container>
+    <div className="cart-container">
       <h1>Your Cart</h1>
       <div id="cartItems">
         <ul>
@@ -42,7 +41,7 @@ render(){
           ))}
         </ul> 
       </div>
-    </Container>
+    </div>
   ) 
 }
 };

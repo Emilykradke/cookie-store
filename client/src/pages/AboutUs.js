@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import Container from "../components/Layout/Container/Container"
 
 class AboutUs extends Component {
-render(){
-  return(
-    <Container>
-      
-    </Container>
-  )
-}
+  render() {
+    return (
+      <div className="about-container">
+        <div className="hero">
+          <h1 className="hero-title">About Us</h1>
+        </div>
+      </div>
+    ) 
+  }
 };
 
 export default AboutUs;

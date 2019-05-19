@@ -6,13 +6,19 @@ nav {
   .logo {
     margin: 10px 0 10px 20px;
     padding: 5px;
-    background-color: $banner;
-    font-size: 32px;
+    font-size: 27px;
     border-radius: 8px;
+    letter-spacing: 1px;
 
     a {
       text-decoration: none;
       color: black;
+    }
+
+    .logo-phrase {
+      font-size: 13px;
+      width: 100%;
+      color: $link-primary;
     }
   }
 
@@ -28,6 +34,7 @@ nav {
         font-size: 18px;
         color: $font-primary;
         text-decoration: none;
+        text-transform: uppercase;
 
         &:hover {
           color: black;
