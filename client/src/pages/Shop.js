@@ -76,7 +76,7 @@ class Shop extends Component {
     const { selectedItem, dropdownExpanded } = this.state;
 
     return(
-      <Fragment>
+      <div className="shop-page">
     
         <div className="shop-container">
           <div className="hero">
@@ -137,7 +137,7 @@ class Shop extends Component {
             }
           </>
         </div>
-      </Fragment>
+      </div>
       
         
     )
