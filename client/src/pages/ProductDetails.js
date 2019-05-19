@@ -21,7 +21,7 @@ class ProductDetails extends Component {
   }
 
   handleInputChange = event => {
-    const { value } = event.target
+    const { value } = event.target 
     this.setState({
       quantity: value,
       total: this.state.product.price * parseInt(value)
@@ -30,11 +30,18 @@ class ProductDetails extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    this.props.addToCart(this.state)
-    this.setState({
-      addedToCart: true,
-      quantity: ""
-    })
+    const quantity = parseInt(this.state.quantity);
+    // const quantity = parseInt(value)
+    console.log(typeof quantity)
+    if (isNaN(quantity) || quantity < 1) {
+      console.log("That is an invalid number")
+    } else {
+      this.props.addToCart(this.state)
+      this.setState({
+        addedToCart: true,
+        quantity: ""
+      })
+    }
   }
 
 render(){

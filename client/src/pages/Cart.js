@@ -3,7 +3,9 @@ import { Link } from "react-router-dom"
 
 class Cart extends Component {
   componentDidMount() {
-    this.calculateCartTotal(this.props.cart);
+    if (this.props.cart.length) {
+      this.calculateCartTotal(this.props.cart);
+    }
     console.log(this.props.cart);
     // console.log(this.calculateCartTotal(this.props.cart))
   }
@@ -25,22 +27,32 @@ render(){
     <div className="cart-container">
       <h1>Your Cart</h1>
       <div id="cartItems">
-        <ul>
-          {this.props.cart.map(cartItem => (
-            <div className="product-container" key={cartItem.product._id}>
-              <Link to={"/products/" + cartItem.product._id}>
-                <img src={cartItem.product.imagePath} alt="cookie"/>
-              </Link>
-              <div className="productDetails">
-                <div className="flavor">{cartItem.product.flavor}</div>
-                <div className="price">{cartItem.product.price}</div>
-                <div className="quantity">QTY {cartItem.quantity}</div>
-                <div className="itemTotal">TOTAL {cartItem.total}</div>
-              </div>
-            </div>
-          ))}
-        </ul> 
+        <>
+          {(this.props.cart.length) ?
+            <ul>
+              {this.props.cart.map(cartItem => (
+                <div className="product-container" key={cartItem.product._id}>
+                  <Link to={"/products/" + cartItem.product._id}>
+                    <img src={cartItem.product.imagePath} alt="cookie"/>
+                  </Link>
+                  <div className="productDetails">
+                    <div className="flavor">{cartItem.product.flavor}</div>
+                    <div className="price">{cartItem.product.price}</div>
+                    <div className="quantity">QTY {cartItem.quantity}</div>
+                    <div className="itemTotal">TOTAL {cartItem.total}</div>
+                  </div>
+                </div>
+              ))}
+            </ul> 
+          :
+          <div className="empty-cart">
+            <p>Your Cart is Empty</p>
+          </div>
+          }
+        </>
+        
       </div>
+      
     </div>
   ) 
 }

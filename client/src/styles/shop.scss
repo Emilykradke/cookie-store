@@ -1,13 +1,26 @@
 .shop-container {
   background-color: $bg-primary;
 
-  .shop-hero {
-    background-color: $banner;
-    height: 200px;
+  .hero {
+    height: 400px;
+    background-image: url("../images/flavors.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 100px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: center;
+    flex-direction: column;
+
+    .hero-title {
+      text-align: center;
+      font-size: 40px;
+      color: white;
+      text-transform: uppercase;
+      padding-bottom: 30px;
+      text-shadow: 2px 2px 3px black; 
+    }
   }
   
   .dropdown-container {
@@ -58,6 +71,77 @@
 
       .flavor {
           margin: 10px 0;
+      }
+    }
+  }
+
+  .dropdown {
+    display: relative;
+    width: 200px;
+
+    .dropdown-label {
+      display: inline-block;
+      margin-bottom: 5px;
+    }       
+
+    .btn-toggle {
+      padding: 5px 15px;
+      width: 100%;
+      background-color: white;
+      border: none;
+      font-size: 16px;
+      border: 1px solid gray;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+
+      &.expanded {
+        svg {
+            transform: rotate(0);
+        }
+      }
+
+      .selected-item {
+        display: inline-block;
+      }
+
+      svg {
+        display: inline-block;
+        height: 15px;
+        width: 15px;
+        margin-left: 12px;
+        transition: all .25s ease-in-out;
+        transform: rotate(-90deg);
+      }
+    }  
+
+    .list {
+      display: absolute;
+      top: 0;
+      left: 0;
+      list-style-type: none;
+      opacity: 0;
+      max-height: 0;
+      transition: all .25s ease-in-out;
+      z-index: 3;
+      overflow: hidden;
+
+      &.expanded {
+        max-height: 500px;
+        opacity: 1;
+      }
+
+      .item {
+
+        button {
+          width: 100%;
+          padding: 5px;
+          background-color: white;
+          border: 1px solid gray;
+          border-top: none;
+          font-size: 16px;
+          cursor: pointer;
+        }
       }
     }
   }
