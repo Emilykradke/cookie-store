@@ -45,13 +45,13 @@ render(){
                       <div className="flavor">{cartItem.product.flavor}</div>
                       <div className="price">{cartItem.product.price}</div>
                       <div className="quantity">QTY {cartItem.quantity}</div>
-                      <div className="itemTotal">TOTAL {cartItem.total}</div>
+                      <div className="itemTotal">TOTAL $ {cartItem.total}.00</div>
                     </div>
                   </div>
                 ))}
               </ul> 
               <div className="subtotal">
-                Subtotal: {this.state.cartTotal}
+                Subtotal: $ {this.state.cartTotal}.00
               </div>
           </div>
           :
