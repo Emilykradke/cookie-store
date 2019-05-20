@@ -14,7 +14,8 @@ class SignIn extends Component {
     signupEmail: null,
     signupEmailErr: null,
     signupPassword: null,
-    signupPasswordErr: null
+    signupPasswordErr: null,
+    authenticated: false
   }
 
   handleInputChange = (event) => {
@@ -49,9 +50,19 @@ class SignIn extends Component {
     event.preventDefault();
 
     if (this.handleLoginValidation()) {
-      // Passed Login validation
+      API.getUsers() 
+      .then(res => this.comparePassword(res.data))
+      .catch(err => console.log(err))
+    }
+  }
 
-      //Submit.
+  comparePassword = (users) => {
+    for (let i = 0; i < users.length; i++) {
+      if (users.email === this.state.loginEmail && users.password === this.state.loginPassword) {
+        this.setState({
+          authenticated: true
+        })
+      }
     }
   }
 
@@ -91,6 +102,8 @@ class SignIn extends Component {
         email: this.state.signupEmail,
         password: this.state.signupPassword
       })
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
   }
 
@@ -136,7 +149,7 @@ class SignIn extends Component {
   }
 
   render() {
-    const { loginEmailErr, loginPasswordErr, signupFNameErr, signupLNameErr, signupEmailErr, signupPasswordErr
+    const { loginEmailErr, loginPasswordErr, signupFNameErr, signupLNameErr, signupEmailErr, signupPasswordErr, authenticated
       } = this.state;
 
     return(
