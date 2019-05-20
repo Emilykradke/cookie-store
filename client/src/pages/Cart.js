@@ -74,14 +74,17 @@ render(){
             </div>
 
             <div className="btn-block">
-              <button className="">
-                Continue shopping
-              </button>
-              <button className="">
-                Checkout
-              </button>
+              <Link to="/Shop">
+                <button className="continueShopping">
+                  Continue Shopping
+                </button>
+              </Link>
+              <Link to="/Checkout">
+                <button className="checkoutLink">
+                  Checkout
+                </button>
+              </Link>
             </div>
-
           </div>
           :
           <div className="empty-cart">

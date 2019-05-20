@@ -1,15 +1,13 @@
-import React from 'react'
-
 import React, { Component } from 'react';
 
-class checkout extends Component {
+class Checkout extends Component {
   render() {
     return (
       <div>
-        
+        checkout
       </div>
     );
   }
 }
 
-export default checkout;
+export default Checkout;

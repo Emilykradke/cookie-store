@@ -9,6 +9,7 @@ import Cart from './pages/Cart';
 import ProductDetails from './pages/ProductDetails'
 import NoMatch from './pages/NoMatch';
 import Nav from './components/Layout/Nav/Nav';
+import Checkout from './pages/Checkout'
 import Footer from './components/Layout/Footer/Footer';
 import API from "./utils/API";
 
@@ -69,6 +70,7 @@ class App extends Component {
           <Route exact path='/AboutUs' component={AboutUs} />
           <Route exact path='/ContactUs' component={ContactUs} />
           <Route exact path='/SignIn' component={SignIn} />
+          <Route exact path='/Checkout' component={Checkout} />
           <Route exact path='/Cart'>
             <Cart
               cart={cart}
