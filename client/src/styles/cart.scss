@@ -1,11 +1,125 @@
 .cart-container {
+  padding: 50px 20px;
   background-color: $bg-primary;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  
+  @media all and (min-width: 768px) {
+    padding: 80px 60px;
+  }
 
-  h1 {
+
+  .title {
+    margin: 20px auto;
+    font-size: 32px;
     text-transform: uppercase;
+    max-width: 1080px;
+
+    @media all and (min-width: 768px) {
+      font-size: 28px;
+    }
+  }
+
+  .items-container {
+    margin: 20px;
+    max-width: 1080px;
+    margin: auto;
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      border-top: 1px solid $bg-secondary;
+      padding: 20px 0;
+      
+      @media all and (min-width: 768px) {
+        flex-direction: row;
+      }
+      
+      &:last-of-type {
+        border-bottom: 1px solid $bg-secondary;
+      }
+
+      .image-block {
+        width: 150px;
+        height: 180px;
+      }
+
+      .block {
+        margin: 15px;
+
+        .label {
+          display: inline-block;
+          width: 100px;
+        }
+
+        .value {
+          display: inline-block;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .subtotal-container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+
+    .block {
+
+      .subtotal-label {
+        display: inline-block;
+        margin-right: 75px;
+      }
+
+      .dollar-amount {
+        display: inline-block;
+      }
+    }
+  }
+
+  .btn-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 20px;
+
+    @media all and (min-width: 768px) {
+      flex-direction: row;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      background-color: $link-primary;
+      border: 2px solid $bg-secondary;
+      border-radius: 4px;
+      color: $bg-secondary; 
+      cursor: pointer;
+      transition: all .25s ease-in-out;
+
+      &:first-of-type {
+        margin-right: 30px;
+      }
+      
+      &:hover {
+        background-color: $bg-secondary;
+        color: $link-primary;
+        -webkit-box-shadow: 0px 10px 19px 3px rgba(0,0,0,0.27);
+        -moz-box-shadow: 0px 10px 19px 3px rgba(0,0,0,0.27);
+        box-shadow: 0px 10px 19px 3px rgba(0,0,0,0.27);
+        transform: scale(1.05);
+      }
+
+      @media all and (min-width: 768px) {
+        display: block;
+        width: 190px;
+        padding: 10px 15px;
+        margin-top: 20px;
+      }
+    }
   }
 }

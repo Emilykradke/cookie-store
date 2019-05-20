@@ -30,29 +30,58 @@ class Cart extends Component {
 render(){
   return(
     <div className="cart-container">
-      <h1>Your Cart</h1>
-      <div id="cartItems">
+      <h1 className="title">Your Cart</h1>
+      <div className="items-container"id="cartItems">
         <>
           {(this.props.cart.length) ?
             <div>
               <ul>
                 {this.props.cart.map(cartItem => (
-                  <div className="product-container" key={cartItem.product._id}>
-                    <Link to={"/products/" + cartItem.product._id}>
-                      <img src={cartItem.product.imagePath} alt="cookie"/>
-                    </Link>
-                    <div className="productDetails">
-                      <div className="flavor">{cartItem.product.flavor}</div>
-                      <div className="price">{cartItem.product.price}</div>
-                      <div className="quantity">QTY {cartItem.quantity}</div>
-                      <div className="itemTotal">TOTAL $ {cartItem.total}.00</div>
+                  <div className="item" key={cartItem.product._id}>
+                    
+                    <div className="image-block">
+                      <Link to={"/products/" + cartItem.product._id}>
+                        <img src={cartItem.product.imagePath} alt="cookie"/>
+                      </Link>
+                    </div>
+                    <div className="details-block">
+                      <div className="block">
+                        <span className="label">Flavor: </span>
+                        <p className="value">{cartItem.product.flavor}</p>
+                      </div>
+                      <div className="block">
+                        <span className="label">Price: </span>
+                        <p className="value">$ {cartItem.product.price}.00</p>
+                      </div>
+                      <div className="block">
+                        <span className="label">Quantity: </span>
+                        <p className="value">{cartItem.quantity}</p>
+                      </div>
+                    </div>
+                    <div className="block">
+                      <span className="label">TOTAL: </span>
+                      <p className="value">$ {cartItem.total}.00</p>
                     </div>
                   </div>
                 ))}
               </ul> 
-              <div className="subtotal">
-                Subtotal: $ {this.state.cartTotal}.00
+
+            <div className="subtotal-container">
+              <div className="block">
+                <span className="subtotal-label">SUBTOTAL: </span>
+                <span className="dollar-amount">$ {this.state.cartTotal}.00</span>
               </div>
+            </div>
+
+            <div className="btn-block">
+              <button className="">
+                Continue shopping
+              </button>
+              <button className="">
+                Checkout
+              </button>
+            </div>
+
           </div>
           :
           <div className="empty-cart">

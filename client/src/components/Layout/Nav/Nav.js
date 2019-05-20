@@ -6,18 +6,20 @@ class Nav extends Component {
     return (
       <Fragment>
         <div className="bar"></div>
-        <nav>
-          <h2 className="logo">
-            <Link to="/">cookie store</Link>
-            <p className="logo-phrase">always eat good cookies</p>
-          </h2>
+        <div className="nav-container">
+          <nav>
+            <h2 className="logo">
+              <Link to="/">cookie store</Link>
+              <p className="logo-phrase">always eat good cookies</p>
+            </h2>
 
-          <ul className="nav-list">
-            <li><Link to="/Shop">Shop</Link></li>
-            <li><Link to="/Cart">Cart</Link></li>
-            <li><Link to="/SignIn">Sign In</Link></li>
-          </ul>
-        </nav>
+            <ul className="nav-list">
+              <li><Link to="/Shop">Shop</Link></li>
+              <li><Link to="/Cart">Cart</Link></li>
+              <li><Link to="/SignIn">Sign In</Link></li>
+            </ul>
+          </nav>
+        </div>
       </Fragment>
       
     );
