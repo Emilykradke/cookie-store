@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import API from "../utils/API";
 
 class SignIn extends Component {  
   state = {
@@ -84,9 +85,12 @@ class SignIn extends Component {
     event.preventDefault();
 
     if (this.handleSignupValidation()) {
-      // Passed signup validation
-
-      //Submit.
+      API.createUsers({
+        firstName: this.state.signupFName,
+        lastName: this.state.signupLName,
+        email: this.state.signupEmail,
+        password: this.state.signupPassword
+      })
     }
   }
 

@@ -9,12 +9,10 @@ export default {
   getProduct: function(id) {
     return axios.get("/api/products/" + id);
   },
-  // Deletes the Document with the given id
-  deleteDocument: function(id) {
-    return axios.delete("/api/collectionName/" + id);
+  getUsers: function() {
+    return axios.get("/api/users")
   },
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/collectionName", bookData);
+  createUsers: function(userData) {
+    return axios.post("/api/users", userData)
   }
 };

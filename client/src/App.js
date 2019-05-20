@@ -45,6 +45,8 @@ class App extends Component {
     }, () => {console.log(this.state.cart)});
   }
 
+
+
   render() {
     const { cart, products, authenticated, isProductsLoaded } = this.state;
 

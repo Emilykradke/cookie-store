@@ -82,7 +82,7 @@ class Shop extends Component {
           <div className="hero">
             <h1 className="hero-title">All Flavors</h1>
           </div>
-        </div>
+        
 
         <div className="dropdown-container"> 
           <div className="dropdown">
@@ -137,6 +137,7 @@ class Shop extends Component {
             }
           </>
         </div>
+      </div>
       </div>
       
         
