@@ -45,52 +45,64 @@ class ProductDetails extends Component {
 render(){
   const { addedToCart, product } = this.state;
   return(
-    <div className="product-details-container">
-      <div className="productImage">
-        <img src={product.imagePath} alt={product.flavor}/>
-      </div>
-      <div className="productDetails">
-        <h1>{product.flavor}</h1>
-        <p>{product.description}</p>
-        <p>$ {product.price}.00</p>
-      </div>
-
-      <form>
-        <div className="quantity-container"></div>
-          <div className="block">
-            <label>Quantity</label>
-            <input
-              onChange={this.handleInputChange}
-              name="quantity"
-              placeholder="Enter Quantity Here"
-              defaultValue=""
-            ></input>
-            <button
-              onClick={this.handleFormSubmit}
-            >
-            Add to Cart
-            </button>
+    <div className="product-details-page">
+      <div className="product-details-container">
+        <div className="product-image">
+          <img src={product.imagePath} alt={product.flavor}/>
+        </div>
+        
+        <div className="details-right">
+          <div className="product-details">
+            <h1>{product.flavor}</h1>
+            <p className="description">{product.description}</p>
+            <p className="price">$ {product.price}.00</p>
           </div>
 
-        {addedToCart ?
+          <form>
+            <div className="quantity-container"></div>
+              <div className="block">
+                <label>QTY</label>
+                <input
+                  onChange={this.handleInputChange}
+                  name="quantity"
+                  placeholder="Enter Quantity Here"
+                  defaultValue=""
+                ></input>
+                <button className="add-button"
+                  onClick={this.handleFormSubmit}
+                >
+                Add to Cart
+                </button>
+              </div>
 
-          <Fragment>
-            <div className="conditional-button">
-              <p className="product-added"><b>{this.state.product.flavor} Cookies</b> Added To Cart!</p>
-              <Link to="/Shop" className="">
-                Continue Shopping
-              </Link>
-              <Link to="/Cart" className="">
-                Checkout
-              </Link>
-            </div>
-          </Fragment>
-          :null
-          }
-      </form>
-    </div>
-  )
-}
+            {addedToCart ?
+
+              <Fragment>
+                <div className="conditional-render">
+                  <p className="product-added"><b>{this.state.product.flavor} Cookies</b> Added To Cart!</p>
+                  <div className="buttons">
+                    <Link to="/Shop">
+                      <button className="continueShopping">
+                        Continue Shopping
+                      </button>
+                    </Link>
+                    <Link to="/Cart">
+                      <button className="checkoutLink">
+                        View Cart
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </Fragment>
+              :null
+              }
+            </form>
+          </div>
+        
+        </div>
+      </div>
+    )
+  }
 };
 
 export default withRouter(ProductDetails);

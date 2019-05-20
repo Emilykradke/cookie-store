@@ -79,7 +79,7 @@ render(){
                   Continue Shopping
                 </button>
               </Link>
-              <Link to="/Checkout">
+              <Link to="/Signin">
                 <button className="checkoutLink">
                   Checkout
                 </button>
