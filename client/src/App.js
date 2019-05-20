@@ -9,7 +9,7 @@ import Cart from './pages/Cart';
 import ProductDetails from './pages/ProductDetails'
 import NoMatch from './pages/NoMatch';
 import Nav from './components/Layout/Nav/Nav';
-import Checkout from './pages/Checkout';
+import Checkout from './components/Checkout';
 import Footer from './components/Layout/Footer/Footer';
 import API from "./utils/API";
 
