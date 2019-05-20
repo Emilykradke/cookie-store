@@ -1,7 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { Link, withRouter } from "react-router-dom"
-import Container from "../components/Layout/Container/Container"
-import { Input, Button } from "../components/Layout/Form/Form" 
 import API from "../utils/API";
 
 class ProductDetails extends Component {
@@ -47,7 +45,7 @@ class ProductDetails extends Component {
 render(){
   const { addedToCart, product } = this.state;
   return(
-    <Container>
+    <div className="product-details-container">
       <div className="productImage">
         <img src={product.imagePath} alt={product.flavor}/>
       </div>
@@ -56,35 +54,41 @@ render(){
         <p>{product.description}</p>
         <p>$ {product.price}.00</p>
       </div>
-      <form className="quantity">
-        <div>Qty</div>
-        <Input
-          defaultValue=""
-          onChange={this.handleInputChange}
-          name="quantity"
-          placeholder="Enter Quantity Here"
-          />
-        <Button
-          onClick={this.handleFormSubmit}
-        >
-        Add to Cart
-        </Button>
+
+      <form>
+        <div className="quantity-container"></div>
+          <div className="block">
+            <label>Quantity</label>
+            <input
+              onChange={this.handleInputChange}
+              name="quantity"
+              placeholder="Enter Quantity Here"
+              defaultValue=""
+            ></input>
+            <button
+              onClick={this.handleFormSubmit}
+            >
+            Add to Cart
+            </button>
+          </div>
 
         {addedToCart ?
 
           <Fragment>
-            <p><b>{this.state.product.flavor} Cookies</b> Added To Cart!</p>
-            <Link to="/Shop" className="continueShopping">
-              Continue Shopping
-            </Link>
-            <Link to="/Cart" className="checkoutLink">
-              Checkout
-            </Link>
+            <div className="conditional-button">
+              <p className="product-added"><b>{this.state.product.flavor} Cookies</b> Added To Cart!</p>
+              <Link to="/Shop" className="">
+                Continue Shopping
+              </Link>
+              <Link to="/Cart" className="">
+                Checkout
+              </Link>
+            </div>
           </Fragment>
           :null
           }
       </form>
-    </Container>
+    </div>
   )
 }
 };

@@ -2,7 +2,8 @@
   padding: 50px 20px;
   background-color: $bg-primary;
   flex: wrap;
-  
+  height: 70vh;
+
   @media all and (min-width: 768px) {
     padding: 80px 60px;
   }
@@ -122,5 +123,9 @@
         margin-top: 20px;
       }
     }
+  }
+
+  .empty-cart {
+    height: 53vh
   }
 }
