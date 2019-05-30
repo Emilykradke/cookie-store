@@ -81,12 +81,12 @@ render(){
                 <div className="conditional-render">
                   <p className="product-added"><b>{this.state.product.flavor} Cookies</b> Added To Cart!</p>
                   <div className="buttons">
-                    <Link to="/Shop">
+                    <Link to="/Shop" style={{ textDecoration: 'none' }}>
                       <button className="continueShopping">
                         Continue Shopping
                       </button>
                     </Link>
-                    <Link to="/Cart">
+                    <Link to="/Cart" style={{ textDecoration: 'none' }}>
                       <button className="checkoutLink">
                         View Cart
                       </button>

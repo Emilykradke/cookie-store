@@ -2,7 +2,7 @@
   padding: 50px 20px;
   background-color: $bg-primary;
   flex: wrap;
-  height: 70vh;
+  // height: 70vh;
 
   @media all and (min-width: 768px) {
     padding: 80px 60px;
@@ -126,6 +126,6 @@
   }
 
   .empty-cart {
-    height: 53vh
+    height: 60vh
   }
 }

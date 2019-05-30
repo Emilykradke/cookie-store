@@ -29,6 +29,14 @@
     max-width: 1080px;
     margin: auto;
     padding-bottom: 75px;
+
+    @media all and (max-width: 1024px) {
+      width: 750px;
+    }
+
+    @media all and (max-width: 768px) {
+      width: 370px
+    }
       
     .product {
       display: inline-block;
@@ -74,6 +82,8 @@
   .dropdown-container {
     // height: 192px;
     display: flex;
+    margin-right: 10px;
+    // width: 250px;
     justify-content: flex-end;
     padding-right: 30px;
 

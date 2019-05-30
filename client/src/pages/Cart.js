@@ -74,12 +74,12 @@ render(){
             </div>
 
             <div className="btn-block">
-              <Link to="/Shop">
+              <Link to="/Shop" style={{ textDecoration: 'none' }}>
                 <button className="continueShopping">
                   Continue Shopping
                 </button>
               </Link>
-              <Link to="/Signin">
+              <Link to="/Signin" style={{ textDecoration: 'none' }}>
                 <button className="checkoutLink">
                   Checkout
                 </button>
