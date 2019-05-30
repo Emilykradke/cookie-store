@@ -10,18 +10,35 @@
     justify-content: space-between;
     // flex-direction: columns;
 
-    @media all and (max-width: 400px) {
+    @media all and (max-width: 768px) {
       flex-direction: column;
       margin: auto;
     }
 
-    img {
-      height: 250px;
+    .product-image {
       width: 300px;
+      margin: auto;
+
+      img {
+        height: 250px;
+        width: 300px;
+        margin: auto;
+
+        @media all and (max-width: 768px) {
+          margin-bottom: 75px;
+        }
+      }
     }
 
+    
+
     .details-right {
-      width: 600px;
+      width: 500px;
+      margin: auto;
+
+      @media all and (max-width: 768px) {
+        width: 350px;
+      }
 
       @media all and (max-width: 400px) {
         width: 340px;
