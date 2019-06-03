@@ -42,10 +42,19 @@
       }
 
       .image-block {
-        width: 270pxpx;
+        width: 270px;
         height: 180px;
         margin: auto;
         padding-bottom: 30px;
+      }
+
+      .details-block {
+        width: 400px;
+
+        @media all and (max-width: 768px) {
+          width: 300px;
+          margin: auto;
+        }
       }
 
       .block {
