@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import BurgerButton from './HamburgerButton';
 
 class Nav extends Component {
   render() {
@@ -7,7 +8,13 @@ class Nav extends Component {
       <Fragment>
         <div className="bar"></div>
         <div className="nav-container">
+
+          <div className='burger-nav'>
+          <BurgerButton click={this.props.burgerClickHandler} />
+          </div>
+
           <nav>
+
             <h2 className="logo">
               <Link to="/">cookie store</Link>
               <p className="logo-phrase">always eat good cookies</p>

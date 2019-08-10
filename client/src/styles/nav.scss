@@ -17,6 +17,10 @@
     align-items: center;
     max-width: 1200px;
     margin: auto;
+
+    @media all and (max-width: 500px) {
+      display: none;
+    }
   
     .logo {
       margin: 10px 0 10px 20px;

@@ -139,8 +139,7 @@ class Shop extends Component {
         </div>
       </div>
       </div>
-      
-        
+    
     )
   }
 };

@@ -12,6 +12,8 @@ import Nav from './components/Layout/Nav/Nav';
 import Checkout from './components/Checkout';
 import Footer from './components/Layout/Footer/Footer';
 import API from "./utils/API";
+import BurgerMenu from './components/Layout/Nav/BurgerMenu';
+import MenuBackdrop from './components/Layout/Nav/Backdrop';
 
 class App extends Component {
 
@@ -19,12 +21,23 @@ class App extends Component {
       cart: [],
       products: [],
       authenticated: false,
-      isProductsLoaded: false
+      isProductsLoaded: false,
+      burgerMenuopen: false
     }
 
   componentDidMount() {
     this.loadProducts();
     // console.log(this.props.cart)
+  }
+
+  burgerToggleClickHandler = () => {
+    this.setState((prevState) =>{
+      return {burgerMenuOpen: !prevState.burgerMenuOpen}
+    })
+  }
+
+  backdropClickHandler = () => {
+    this.setState({burgerMenuOpen: false})
   }
 
   loadProducts = () => {
@@ -51,12 +64,23 @@ class App extends Component {
   render() {
     const { cart, products, authenticated, isProductsLoaded } = this.state;
 
+    let burgerMenu;
+    let backdrop;
+
+    if (this.state.burgerMenuOpen) {
+      burgerMenu = <BurgerMenu click={this.backdropClickHandler} />
+      backdrop = <MenuBackdrop click={this.backdropClickHandler} />
+    }
+
     return (
     <Router>
       <Fragment>
         <Nav 
+          burgerClickHandler={this.burgerToggleClickHandler}
           cart = {cart}
           authenticated={authenticated}/>
+        {burgerMenu}
+        {backdrop}
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/Shop'>

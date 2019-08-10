@@ -1,0 +1,54 @@
+.burger-nav {
+  @media all and (min-width: 500px) {
+    display: none;
+  }
+
+  .burgerButton {
+    font-family: $font-primary;
+    text-transform: uppercase;
+    color: $font-primary;
+    letter-spacing: 1.5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 75px;
+    width: 115px;
+    margin: auto;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    
+    .burgerTitle {
+      margin-right: 5px;
+      font-size: 24px;
+    }
+
+    .menu-lines {
+      padding-left: 7px;
+
+      .buttonLine {
+        width: 35px;
+        margin-top: 6px;
+        height: 1px;
+        background: black;
+        border-radius: 50px;
+      }
+    }  
+  }
+  
+  .burgerButton:focus {
+      background: none;
+  }
+
+  @media all and (min-width: 768px) {
+    display: none;
+    width: 0px;
+  }
+}
+
+
+
+
