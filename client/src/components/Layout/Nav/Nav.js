@@ -16,7 +16,7 @@ class Nav extends Component {
           <nav>
 
             <h2 className="logo">
-              <Link to="/">cookie store</Link>
+              <Link to="/">sugar mama</Link>
               <p className="logo-phrase">always eat good cookies</p>
             </h2>
 
